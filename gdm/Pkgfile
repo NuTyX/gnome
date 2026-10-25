@@ -1,0 +1,40 @@
+description="Library for Graphical logins and managing local and remote displays."
+url="https://gitlab.gnome.org/GNOME/gdm"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Fanch,Schrodinger72,Spiky"
+
+makedepends=(pam accountsservice nss libcanberra
+             gnome-session gnome-shell libdaemon
+             libhandy gtk3 systemd)
+run=(xorg-xinit xorg-xhost xorg-xrdb upower iso-codes
+     gnome-backgrounds mutter gnome-control-center)
+
+set=(gnome-base gnome)
+
+name=gdm
+version=51.0
+release=2
+
+PKGMK_GROUPS=(devel)
+PKGMK_MESON_OPTIONS="-Dgdm-xsession=true \
+-Ddefault-pam-config=lfs \
+-Ddefault-path=/usr/local/bin:/usr/bin:/bin \
+-Drun-dir=/run/gdm   \
+--sbindir=/usr/bin   \
+--localstatedir=/var \
+--libdir=/usr/lib"
+
+source=($url.git)
+
+build=meson
+
+package() {
+  mkdir -p $PKG/var/lib/gdm
+  install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+  install -Dm644 /dev/stdin $PKG/usr/lib/sysusers.d/gdm.conf << EOF
+g gdm 21 -
+EOF
+}
