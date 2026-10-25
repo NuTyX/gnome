@@ -1,0 +1,31 @@
+description="Menu editor for gnome"
+url="https://gitlab.gnome.org/GNOME/alacarte"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Spiky"
+
+makedepends=(gnome-menus python-gobject)
+run=(gtk-update-icon-cache gnome-menus python-gobject)
+
+set=(gnome)
+
+name=alacarte
+version=3.58.0
+source=($url/-/archive/$version/$name-$version.tar.bz2)
+
+prepare() {
+ cd $name-$version
+ NOCONFIGURE=1 ./autogen.sh
+}
+build() {
+  cd $name-$version
+	./configure --prefix=/usr --disable-documentation \
+          --sysconfdir=/etc --localstatedir=/var
+	make
+	make DESTDIR=$PKG install
+
+   install -Dm644 COPYING $PKG/usr/share/licenses/$name/COPYING
+}
+
