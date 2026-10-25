@@ -1,0 +1,31 @@
+description="The Control Center for GNOME"
+url="https://gitlab.gnome.org/GNOME/gnome-control-center"
+
+license="GPL-2.0-or-later"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Fabienwang,Tnut"
+
+makedepends=(autoconf git udisks2 accountsservice libhandy
+             colord-gtk gnome-online-accounts gsound gnome-settings-daemon
+             grilo libgtop libpwquality kerberos shared-mime-info
+             cups samba gnome-bluetooth ibus meson modemmanager blueprint-compiler
+             network-manager-applet ninja gnome-color-manager gnome-desktop
+             cups-pk-helper wayland gdk-pixbuf libadwaita xorg-setxkbmap
+             gnome-settings-daemon geocode-glib libgweather-4)
+run=(iso-codes gsettings-desktop-schemas libgnomekbd tecla
+     sound-theme-freedesktop libnma libadwaita)
+
+set=(gnome-base gnome)
+
+name=gnome-control-center
+version=51.1
+
+source=($url.git)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
