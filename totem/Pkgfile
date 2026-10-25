@@ -1,0 +1,30 @@
+description="GNOME3 movie player based on GStreamer"
+url="https://www.gnome.org/projects/totem/"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Fanch,Rems,Spiky"
+
+makedepends=(appstream-glib meson ninja grilo libpeas
+             gnome-icon-theme gnome-desktop python-xdg
+             xorg-libsm libpeas python-gobject
+             gstreamer-plugins-good gstreamer-plugins-bad
+             totem-pl-parser libportal)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache
+     python-xdg libhandy iso-codes)
+
+name=totem
+version=43.2
+release=5
+
+source=(libpeas-1.38.patch
+        https://download.gnome.org/sources/$name/${version:0:2}/$name-$version.tar.xz)
+
+prepare() {
+ cd $name-$version
+ patch -Np1 -i ../libpeas-1.38.patch
+}
+build=meson
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
