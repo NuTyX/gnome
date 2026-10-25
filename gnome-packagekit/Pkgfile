@@ -1,0 +1,22 @@
+description='Collection of graphical tools for PackageKit to be used in the GNOME desktop'
+url='https://gitlab.gnome.org/GNOME/gnome-packagekit'
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Spiky"
+
+makedepends=(meson intltool itstool docbook-xsl libcanberra
+             gtk3 libnotify packagekit)
+run=(desktop-file-utils)
+
+name=gnome-packagekit
+version=43.0
+release=3
+
+source=(https://download.gnome.org/sources/gnome-packagekit/43/$name-$version.tar.xz)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
