@@ -1,0 +1,28 @@
+description="GNOME service to access online accounts"
+url="https://wiki.gnome.org/Projects/GnomeOnlineAccounts"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Tnut"
+
+makedepends=(gcr-4 kerberos libgnome-keyring libnotify librest libsecret
+             json-glib docbook-xsl gobject-introspection webkit2gtk-4
+             telepathy-glib libadwaita gi-docgen)
+run=(gtk-update-icon-cache keyutils)
+
+name=gnome-online-accounts
+version=3.58.1
+
+PKGMK_MESON_OPTIONS="-Dgtk_doc=true"
+
+source=(https://gitlab.gnome.org/GNOME/gnome-online-accounts/-/archive/$version/$name-$version.tar.gz)
+
+prepare() {
+ #compile to avoid svg error
+  dot -c svg
+  
+  #allow implicit function declaration
+  sed -i '/-Werror=implicit-function-declaration/d' $name-$version/meson.build
+}
+
+build=meson
+
