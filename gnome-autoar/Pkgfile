@@ -1,0 +1,14 @@
+description="Framework for automatic archive extraction, compression and management."
+url="https://gitlab.gnome.org/GNOME/gnome-autoar"
+packager="spiky <spiky@nutyx.org>"
+
+makedepends=(gtk-doc gsettings-desktop-schemas desktop-file-utils
+             gtk-update-icon-cache gtk3 hicolor-icon-theme libarchive)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache)
+
+name=gnome-autoar
+version=0.5.2
+
+source=($url.git)
+
+build=meson
