@@ -1,0 +1,17 @@
+description="File Roller is an archive manager for GNOME"
+url="https://wiki.gnome.org/Apps/FileRoller"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Spiky"
+
+makedepends=(libarchive itstool json-glib nautilus libnotify zip unzip
+            gtk3 dconf desktop-file-utils libportal)
+run=(unzip zip unrar)
+set=(gnome)
+
+name=file-roller
+version=44.7
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
