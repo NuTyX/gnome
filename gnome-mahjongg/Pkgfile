@@ -1,0 +1,22 @@
+description="A gnome mahjongg game"
+url="https://apps.gnome.org/Mahjongg"
+
+license="GPL-2.0-or-later"
+
+contributors="Rems,Tnut"
+packager="spiky <spiky@nutyx.org>"
+
+
+makedepends=(meson ninja gobject-introspection
+             gtk4 vala intltool itstool libcanberra
+             librsvg yelp-tools libadwaita)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache)
+
+set=(gnome-extra)
+
+name=gnome-mahjongg
+version=51.1
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
