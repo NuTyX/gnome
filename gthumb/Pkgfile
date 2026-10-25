@@ -1,0 +1,23 @@
+description='Image browser and viewer for the GNOME Desktop'
+url='https://wiki.gnome.org/Apps/Gthumb'
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Tnut"
+
+makedepends=(dconf gsettings-desktop-schemas gstreamer-plugins-base libjxl
+             json-glib librsvg libsecret libsoup3 libwebp webkit2gtk-4 brasero
+             docbook-xsl exiv2 liboauth meson yelp-tools libraw)
+
+name=gthumb
+version=3.12.12
+release=2
+
+source=(https://gitlab.gnome.org/GNOME/gthumb/-/archive/$version/$name-$version.tar.gz)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
