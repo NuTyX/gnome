@@ -1,0 +1,31 @@
+description="A GNOME web browser based on the WebKit rendering engine."
+url="https://gitlab.gnome.org/GNOME/epiphany"
+
+license="GPL3"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Jayce,Remy,Fanch,Fabienwang,Tnut"
+
+makedepends=(icu ninja meson lsb-release libwnck avahi gcr-4
+             blueprint-compiler libgnome-keyring libnotify
+             json-glib webkit2gtk-6 nss gnome-desktop
+             libdazzle libhandy libportal libsoup3 libpwquality)
+run=(adwaita-icon-theme gsettings-desktop-schemas woff2 libxslt.lib
+     gstreamer-plugins-base openjpeg libwebp enchant libadwaita
+     desktop-file-utils gtk-update-icon-cache iso-codes make-ca)
+
+set=(gnome)
+
+name=epiphany
+version=51.1
+release=2
+
+PKGMK_MESON_OPTIONS="-Dunit_tests=disabled --libdir=/usr/lib"
+
+source=($url.git)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
