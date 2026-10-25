@@ -1,0 +1,43 @@
+description="Manage your email, contacts and schedule."
+url="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+
+license="LGPL3 LGPL2 OpenLDAP"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Fanch,Rems,Spiky"
+
+makedepends=(evolution-data-server gnome-autoar gnome-desktop
+             highlight gstreamer libcanberra libgweather-4 gtkspell 
+             itstool libnotify gtk-doc openldap webkit2gtk-4 gspell)
+
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache
+     shared-mime-info gnome-icon-theme adwaita-icon-theme)
+
+name=evolution
+version=3.62.1
+release=1
+
+source=(https://gitlab.gnome.org/GNOME/evolution/-/archive/$version/$name-$version.tar.bz2)
+
+build() {
+cd $name-$version
+
+cmake -DCMAKE_INSTALL_PREFIX=/usr \
+      -DSYSCONF_INSTALL_DIR=/etc  \
+      -DENABLE_INSTALLED_TESTS=ON \
+      -DENABLE_PST_IMPORT=OFF     \
+      -DENABLE_YTNEF=OFF	    \
+      -DENABLE_CONTACT_MAPS=OFF   \
+      -DENABLE_MARKDOWN=OFF       \
+      -G Ninja
+ninja
+DESTDIR=$PKG ninja install
+
+install -Dm644 COPYING $PKG/usr/share/licenses/$name/COPYING
+install -Dm644 COPYING-DOCS $PKG/usr/share/licenses/$name/COPYING-DOCS
+install -Dm644 COPYING-DOCS.CCBYSA $PKG/usr/share/licenses/$name/COPYING-DOCS.CCBYSA
+install -Dm644 COPYING-DOCS.GFDL $PKG/usr/share/licenses/$name/COPYING-DOCS.GFDL
+install -Dm644 COPYING.LGPL2 $PKG/usr/share/licenses/$name/COPYING.LGPL2
+install -Dm644 COPYING.LGPL3 $PKG/usr/share/licenses/$name/COPYING.LGPL3
+install -Dm644 COPYING.OPENLDAP $PKG/usr/share/licenses/$name/COPYING.OPENLDAP
+}
