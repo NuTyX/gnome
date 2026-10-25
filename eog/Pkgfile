@@ -1,0 +1,26 @@
+description="Eye of Gnome: An image viewing and cataloging program"
+url="https://www.gnome.org/"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Fabienwang,Tnut"
+
+makedepends=(gnome-desktop libpeas shared-mime-info yelp-xsl librsvg
+             gnome-icon-theme exempi lcms2 libexif meson ninja
+             gobject-introspection libportal libhandy)
+run=(adwaita-icon-theme gsettings-desktop-schemas
+     desktop-file-utils gtk-update-icon-cache)
+
+set=(gnome-extra)
+
+name=eog
+version=50.3
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.gz)
+
+PKGMK_MESON_OPTIONS="-Dlibportal=false"
+
+build=meson
+
+package() {
+  install -Dm644 $name-$version/COPYING $PKG//usr/share/licenses/$name/COPYING
+}
