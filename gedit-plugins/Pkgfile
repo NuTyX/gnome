@@ -1,0 +1,24 @@
+description="Collection of plugins for the gedit Text Editor"
+url="https://gitlab.gnome.org/World/gedit/gedit-plugins"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Fanch,Spiky"
+
+makedepends=(git gedit vte libgit2-glib)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache)
+
+set=(gnome)
+
+name=gedit-plugins
+version=50.0
+release=2
+
+source=(https://gitlab.gnome.org/World/gedit/gedit-plugins.git)
+
+build=meson
+
+package() {
+install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
