@@ -1,0 +1,25 @@
+description='A simple user-friendly terminal emulator for the GNOME desktop.'
+url='https://apps.gnome.org/fr/app/org.gnome.Console/'
+
+license="GPL3"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Skythrew,Tnut"
+
+makedepends=(vte libgtop libadwaita meson)
+run=()
+set=(gnome)
+
+name=gnome-console
+version=51.0
+
+source=(https://gitlab.gnome.org/GNOME/console/-/archive/$version/console-$version.tar.bz2)
+
+prepare() {
+ mv console-$version $name-$version
+}
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
