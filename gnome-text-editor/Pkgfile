@@ -1,0 +1,22 @@
+description='A simple text editor for the GNOME DE'
+url='https://gitlab.gnome.org/GNOME/gnome-text-editor'
+
+license="GPL3"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Skythrew,Tnut"
+
+makedepends=(gtk4 gtksourceview5 libadwaita libeditorconfig enchant icu libspelling)
+run=()
+set=(gnome)
+
+name=gnome-text-editor
+version=51.0
+
+source=($url/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
