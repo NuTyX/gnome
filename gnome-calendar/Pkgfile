@@ -1,0 +1,31 @@
+description="GNOME calendar"
+url="https://apps.gnome.org/Calendar"
+
+license="GPL3-or-later"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Jayce,Remy,Tnut"
+
+makedepends=(libdazzle meson intltool libhandy
+             evolution-data-server python blueprint-compiler)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache libgweather-4 libadwaita
+     geoclue2)
+
+set=(gnome)
+
+name=gnome-calendar
+version=51.0
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/${name}-$version.tar.bz2
+       Support-libical-4.0.0.patch)
+
+prepare() {
+cd $name-$version
+patch -Np1 -i ../Support-libical-4.0.0.patch
+}
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
