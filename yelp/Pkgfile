@@ -1,0 +1,35 @@
+description="A help browser for viewing help files."
+url="https://gitlab.gnome.org/GNOME/yelp"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Greg,Tnut"
+
+makedepends=(meson
+itstool intltool gtk-doc libxslt webkit2gtk-6 yelp-xsl gsettings-desktop-schemas libhandy)
+run=(desktop-file-utils hicolor-icon-theme )
+
+name=yelp
+version=49.2
+
+source=($url.git)
+
+build() {
+
+cd $name-$version
+
+mkdir build
+cd    build
+
+meson setup .. \
+     --prefix=/usr          \
+     --buildtype=release
+
+ninja
+
+DESTDIR=$PKG ninja install
+
+install -Dm644 ../COPYING $PKG/usr/share/licenses/$name/COPYING
+
+}
