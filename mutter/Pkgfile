@@ -1,0 +1,37 @@
+description="Window manager for gnome."
+url="https://gitlab.gnome.org/GNOME/mutter"
+
+license="GPL2-or-later"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Fanch,Remy,Fabienwang,Spiky"
+
+makedepends=(meson ninja glib xorg-libsm graphene libdisplay-info libinput
+             gnome-desktop gnome-settings-daemon libwacom libxkbcommon upower
+             gobject-introspection libcanberra startup-notification sysprof
+             xorg-libxcursor xorg-libxcomposite wayland-protocols libei)
+
+run=(xorg-server zenity pipewire xorg-xwayland glycin libinput)
+set=(gnome-base gnome)
+
+name=mutter
+version=51.0
+release=3
+
+PKGMK_MESON_OPTIONS="-Dbash_completion=false \
+-Dtests=disabled"
+source=($url.git)
+
+prepare() {
+cd $name-$version
+
+sed "/tests_c_args =/s/$/ + ['-U', 'G_DISABLE_ASSERT']/" -i src/tests/meson.build &&
+sed "/c_args:/a '-U', 'G_DISABLE_ASSERT'," -i src/tests/cogl/unit/meson.build
+}
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
