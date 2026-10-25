@@ -1,0 +1,35 @@
+description="provides the core user interface functions for the GNOME 3 Desktop"
+url="https://gitlab.gnome.org/GNOME/gnome-shell"
+
+license="GPL3-or-later"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Fanch,Remy,Fabienwang,Spiky"
+
+makedepends=(meson sassc evolution-data-server gjs gnome-control-center
+             gnome-themes-extra mutter startup-notification gtk4 gcr-4
+             gstreamer-plugins-base network-manager-applet gtk-doc
+             gnome-autoar asciidoc gnome-bluetooth gjs)
+
+run=(adwaita-icon-theme dconf gnome-backgrounds gnome-menus
+     telepathy-mission-control gtk-update-icon-cache
+     gnome-settings-daemon libsoup3)
+
+set=(gnome-base gnome)
+
+name=gnome-shell
+version=51.1
+release=1
+
+PKGMK_MESON_OPTIONS="-Dtests=false"
+PKGMK_GROUPS=(man)
+
+source=($url/-/archive/$version/$name-$version.tar.bz2)
+
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
