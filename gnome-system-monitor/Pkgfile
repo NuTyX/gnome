@@ -1,0 +1,26 @@
+description="A system monitor for GNOME"
+url="https://apps.gnome.org/SystemMonitor"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Remy,Fanch,Spiky"
+
+makedepends=(meson adwaita-icon-theme itstool gtkmm
+             libgtop libwnck librsvg gnome-icon-theme catch2)
+run=(gsettings-desktop-schemas desktop-file-utils libhandy libadwaita)
+
+set=(gnome)
+
+name=gnome-system-monitor
+version=51.1
+release=2
+
+source=(https://gitlab.gnome.org/GNOME/gnome-system-monitor/-/archive/$version/$name-$version.tar.bz2)
+
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
