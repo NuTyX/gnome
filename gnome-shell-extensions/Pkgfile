@@ -1,0 +1,23 @@
+description="Gnome-shell extensions"
+url="https://gitlab.gnome.org/GNOME/gnome-shell-extensions"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Remy,Fabienwang,Tnut"
+
+makedepends=(libgtop meson ninja)
+
+set=(gnome)
+
+name=gnome-shell-extensions
+version=51.0
+
+source=($url.git)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
