@@ -1,0 +1,26 @@
+description="A tool to customize advanced GNOME 3 options"
+url="https://live.gnome.org/GnomeTweakTool"
+
+license="GPL3 CC0-1.0"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Spiky,Jayce,Schrodinger72"
+
+makedepends=(libhandy meson gtk4 libadwaita)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache
+     python-gobject)
+
+set=(gnome)
+
+name=gnome-tweaks
+version=49.0
+release=2
+
+source=(https://gitlab.gnome.org/GNOME/gnome-tweaks/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/LICENSES/GPL-3.0 $PKG/usr/share/licenses/$name/GPL-3.0
+ install -Dm644 $name-$version/LICENSES/CC0-1.0 $PKG/usr/share/licenses/$name/CC0-1.0
+}
