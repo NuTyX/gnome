@@ -1,0 +1,25 @@
+description="Simple scanning utility"
+url="https://apps.gnome.org/SimpleScan"
+
+license="GPL-3.0-or-later"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Pierre,Greg,Rems,Spiky"
+
+set=(gnome-extra)
+
+makedepends=(sane dconf gtk4 colord libgusb ninja meson yelp-tools
+             libadwaita libwebp vala)
+run=(hicolor-icon-theme)
+
+name=simple-scan
+version=50.0
+
+source=(https://gitlab.gnome.org/GNOME/simple-scan/-/archive/$version/$name-$version.tar.gz)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
