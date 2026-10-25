@@ -1,0 +1,40 @@
+description="Programs that work with contacts, tasks, and calendar information"
+url="https://gitlab.gnome.org/GNOME/evolution/-/wikis/home"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Tnut"
+
+makedepends=(vim db libcanberra gnome-online-accounts gnome-common gperf icu
+             libical libsecret libsoup3 nss libgweather-4 vala 
+             gobject-introspection kerberos gtk4 openldap gcr-4 webkit2gtk-6)
+
+name=evolution-data-server
+version=3.62.1
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.gz)
+
+build() {
+cd $name-$version
+
+mkdir build
+cd    build
+cmake -DCMAKE_INSTALL_PREFIX=/usr   \
+      -DENABLE_OAUTH2_WEBKITGTK4=OFF\
+      -DENABLE_UOA=OFF              \
+      -DENABLE_VALA_BINDINGS=ON     \
+      -DENABLE_INSTALLED_TESTS=ON   \
+      -DENABLE_GOOGLE=ON            \
+      -DENABLE_GOOGLE_AUTH=OFF      \
+      -DWITH_OPENLDAP=OFF           \
+      -DWITH_KRB5=OFF               \
+      -DENABLE_INTROSPECTION=ON     \
+      -DENABLE_GTK_DOC=OFF          \
+      -DWITH_SYSTEMDUSERUNITDIR=no  \
+      ..
+make
+make DESTDIR=$PKG install
+
+install -Dm644 ../COPYING $PKG/usr/share/licenses/$name/COPYING
+}
