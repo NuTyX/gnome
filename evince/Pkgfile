@@ -1,0 +1,29 @@
+description="Pdf, Postscript, DjVu, Tiff, DVI documents viewer."
+url="https://apps.gnome.org/Evince"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Remy,Fanch,Fabienwang,Spiky"
+
+makedepends=(gtk3 gstreamer-plugins-base yelp-xsl
+             itstool gobject-introspection meson ninja
+             libgnome-keyring nautilus gspell poppler-glib)
+run=(adwaita-icon-theme gsettings-desktop-schemas
+     desktop-file-utils gtk-update-icon-cache
+     gnome-icon-theme libhandy)
+
+name=evince
+version=48.4
+release=4
+
+PKGMK_MESON_OPTIONS="-Dgtk_doc=false --wrap-mode=nodownload"
+PKGMK_GROUPS=(devel man)
+
+source=(https://gitlab.gnome.org/GNOME/evince/-/archive/$version/$name-$version.tar.gz)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
