@@ -1,0 +1,47 @@
+description="The Balsa package contains a GNOME based mail client."
+url="https://pawsa.fedorapeople.org/balsa/"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Berlius,Greg,Tnut"
+
+makedepends=(aspell enchant gmime3 rarian pcre
+             gtksourceview4 libnotify kerberos openldap openssl
+             sqlite webkit2gtk-4 procmail gpgme libical)
+
+
+name=balsa
+version=2.6.5
+release=4
+
+source=(https://gitlab.gnome.org/GNOME/balsa/-/archive/$version/$name-$version.tar.gz
+        libical-4.patch)
+
+prepare() {
+cd $name-$version
+ # Don't try to run gtk-update-icon-cache during packaging
+  sed -i 's/gtk_update_icon_cache_program.found()/false/' images/meson.build
+
+ patch -Np1 -i ../libical-4.patch
+}
+ 
+build() {
+
+       cd $name-$version
+
+	mkdir build
+        cd    build
+
+             meson setup .. \
+                   --prefix=/usr     \
+                   --buildtype=release \
+                   -D gtksourceview=true
+                   
+	ninja
+
+	DESTDIR=$PKG ninja install
+
+install -Dm644 ../COPYING $PKG/usr/share/licenses/$name/COPYING
+
+}
