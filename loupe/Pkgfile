@@ -1,0 +1,22 @@
+description='Loupe is an application used for viewing image files on the GNOME Desktop'
+url='https://apps.gnome.org/Loupe/'
+
+license="GPL3"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Spiky"
+
+makedepends=(glycin lcms2 libadwaita libgweather-4  libseccomp rustc)
+set=(gnome)
+
+name=loupe
+version=51.0
+release=1
+
+source=(https://gitlab.gnome.org/GNOME/loupe.git)
+
+build=meson
+
+package() {
+  install -Dm644 $name-$version/COPYING.md $PKG/usr/share/licenses/$name/COPYING
+}
