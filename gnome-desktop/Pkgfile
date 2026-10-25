@@ -1,0 +1,25 @@
+description="Library with common API for various GNOME modules"
+url="https://gitlab.gnome.org/GNOME/gnome-desktop"
+
+license="GPL-2.0-or-later, LGPL-2.0-or-later"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Tnut"
+
+makedepends=(meson ninja itstool gtk3 gtk4 docbook-xml libxml2
+             libseccomp gobject-introspection startup-notification)
+run=(gsettings-desktop-schemas freefont-ttf iso-codes
+     xorg-xkeyboard-config bubblewrap libxkbcommon)
+
+name=gnome-desktop
+version=51.0
+PKGMK_MESON_OPTIONS="-Ddebug_tools=false"
+PKGMK_GROUPS=(devel lib doc man)
+
+source=(https://download.gnome.org/sources/$name/${version:0:2}/$name-$version.tar.xz)
+
+build=meson
+
+package() {
+  install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
