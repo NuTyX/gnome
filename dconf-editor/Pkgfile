@@ -1,0 +1,33 @@
+description="A graphical editor for the DConf database"
+url="http://apps.gnome.org/DconfEditor"
+
+license="GPL3"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Fanch, jayce, Remy, Schrodinger72, Spiky"
+
+makedepends=(dconf dbus gtk3 libxml2 libxslt meson ninja vala libhandy)
+
+set=(gnome)
+
+name=dconf-editor
+version=49.0
+release=1
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.bz2)
+
+build() {
+cd $name-$version
+
+mkdir build
+cd build
+
+meson setup .. \
+      --prefix=/usr \
+      --sysconfdir=/etc
+
+ninja
+DESTDIR=$PKG ninja install
+
+install -Dm644 ../COPYING $PKG/usr/share/licenses/$name/COPYING
+}
