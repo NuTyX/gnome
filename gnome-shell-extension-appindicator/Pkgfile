@@ -1,0 +1,23 @@
+description="AppIndicator/KStatusNotifierItem support for GNOME Shell"
+url="https://github.com/ubuntu/gnome-shell-extension-appindicator"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Tnut"
+
+makedepends=(meson jq libayatana-appindicator)
+run=(gnome-shell)
+set=(gnome)
+
+name=gnome-shell-extension-appindicator
+version=66
+
+source=($url.git)
+
+build=meson
+
+package() {
+ rm $PKG/usr/share/glib-2.0/schemas/gschemas.compiled
+ install -Dm644 $name-$version/LICENSE $PKG/usr/share/licenses/$name/LICENSE
+}
