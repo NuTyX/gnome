@@ -1,0 +1,45 @@
+description="Document viewer for Pdf, Postscript, DjVu, Tiff, DVI."
+url="https://apps.gnome.org/Papers"
+
+license="GPL2-or-later"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Spiky"
+
+makedepends=(meson ninja gtk4 gtksourceview5 rustc
+             itstool gobject-introspection cairo
+             dconf glib graphene exempi nautilus
+             djvulibre libspelling sysprof git
+             poppler-glib pango libtiff libadwaita)
+run=(adwaita-icon-theme gsettings-desktop-schemas
+     desktop-file-utils gtk-update-icon-cache
+     hicolor-icon-theme)
+
+name=papers
+version=51.1
+set=(gnome)
+
+PKGMK_GROUPS=(devel man)
+PKGMK_MESON_OPTIONS="-Ddocumentation=false"
+source=(https://gitlab.gnome.org/GNOME/$name.git)
+
+prepare() {
+ git clone https://github.com/gtk-rs/gir.git
+ git clone https://github.com/gtk-rs/gir-files.git
+ git clone https://gitlab.gnome.org/lbaudin/papers-test-data.git
+ cd $name-$version
+ git submodule init
+ git submodule set-url rust/gir $SRC/gir
+ git submodule set-url rust/gir-files $SRC/gir-files
+ git submodule set-url test-data $SRC/papers-test-data
+ git -c protocol.file.allow=always -c protocol.allow=never submodule update --checkout
+
+ CARGO_HOME=$SRC/build/cargo-home \
+ cargo fetch --locked --target host-tuple
+}
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
