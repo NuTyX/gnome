@@ -1,0 +1,24 @@
+description="Background images and data for GNOME"
+url="https://gitlab.gnome.org/GNOME/gnome-backgrounds"
+
+license="CCPL:by-sa"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Remy,Spiky"
+
+makedepends=(intltool meson ninja python)
+run=(libjxl)
+
+set=(gnome-base gnome)
+
+name=gnome-backgrounds
+version=51.0.1
+
+source=($url/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/COPYING \
+ $PKG/usr/share/licenses/$name/COPYING
+}
