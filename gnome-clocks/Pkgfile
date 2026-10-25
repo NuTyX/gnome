@@ -1,0 +1,24 @@
+description="Clocks applications for GNOME"
+url="http://apps.gnome.org/Clocks"
+
+license="GPL2"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Jayce,Remy,Tnut"
+
+makedepends=(meson ninja gtk4 libcanberra gnome-desktop libhandy vorbis-tools
+             libnotify libgweather-4 geoclue2 geocode-glib gsound)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache libadwaita)
+
+set=(gnome)
+
+name=gnome-clocks
+version=51.0
+
+source=(https://gitlab.gnome.org/GNOME/$name/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
+
+package() {
+ install -Dm644 $name-$version/LICENSE.md $PKG/usr/share/licenses/$name/LICENSE.md
+}
