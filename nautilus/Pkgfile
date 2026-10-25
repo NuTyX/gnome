@@ -1,0 +1,27 @@
+description="GNOME file manager"
+url="https://apps.gnome.org/Nautilus"
+
+license="GPL-3.0-or-later"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Fanch,Jayce,Remy,Fabienwang,Tnut"
+
+run=(desktop-file-utils gtk-update-icon-cache glycin
+     glycin-gtk4 shared-mime-info libportal localsearch)
+makedepends=(gnome-autoar libnotify gnome-desktop gvfs gtk4
+             gobject-introspection exempi libexif gexiv2 blueprint-compiler
+             libcloudproviders meson gtk-doc libhandy bubblewrap libadwaita)
+set=(gnome)
+
+name=nautilus
+version=51.1
+
+PKGMK_MESON_OPTIONS="-Dselinux=disabled"
+
+source=(https://gitlab.gnome.org/GNOME/nautilus/-/archive/$version/$name-$version.tar.gz)
+
+build=meson
+
+package() {
+  install -Dm644 $name-$version/LICENSE $PKG/usr/share/licenses/$name/LICENSE
+}
