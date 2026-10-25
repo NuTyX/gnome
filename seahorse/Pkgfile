@@ -1,0 +1,25 @@
+description="GNOME application for managing PGP keys"
+url="http://www.gnome.org/"
+
+packager="spiky <spiky@nutyx.org>"
+contributors="Jayce,Tnut"
+
+makedepends=(libpwquality meson gtk3 gcr libsoup3 libsecret
+             dconf gpgme openldap intltool yelp-tools openssh
+             gobject-introspection xorg-libsm vala libhandy)
+run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache)
+set=(gnome)
+
+name=seahorse
+version=47.0.1
+release=2
+
+source=(https://download.gnome.org/sources/$name/${version:0:2}/$name-$version.tar.xz
+        gpgme-2.0.patch)
+
+prepare() {
+cd $name-$version
+patch -Np1 -i ../gpgme-2.0.patch
+}
+
+build=meson
