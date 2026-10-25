@@ -1,0 +1,26 @@
+description="A graphical directory tree analyzer"
+url="https://apps.gnome.org/Baobab"
+
+license="GPL2"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Jayce,Remy,Spiky"
+
+makedepends=(adwaita-icon-theme gtk4 itstool
+             librsvg gobject-introspection
+             meson ninja vala libadwaita)
+run=(desktop-file-utils gtk-update-icon-cache gsettings-desktop-schemas libhandy)
+
+set=(gnome)
+
+name=baobab
+version=50.0
+
+source=(https://gitlab.gnome.org/GNOME/baobab/-/archive/$version/$name-$version.tar.bz2)
+
+build=meson
+
+package() {
+cd $name-$version
+install -Dm644 COPYING $PKG/usr/share/licenses/$name/COPYING
+}
