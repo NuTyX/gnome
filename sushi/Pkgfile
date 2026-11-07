@@ -7,7 +7,7 @@ packager="tnut <tnut@nutyx.org>"
 contributors="Spiky"
 
 makedepends=(gobject-introspection git meson gtk4 gjs gtksourceview4
-             gstreamer-plugins-base evince unoconv webkit2gtk-6 papers)
+             gstreamer-plugins-base evince webkit2gtk-6 papers)
 run=()
 set=(gnome)
 
