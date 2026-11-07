@@ -1,0 +1,22 @@
+description="Display graphical dialog boxes from shell scripts."
+url="https://gitlab.gnome.org/GNOME/zenity"
+
+license="LGPL2.1"
+
+packager="tnut <tnut@nutyx.org>"
+contributors="Greg,Spiky"
+
+makedepends=(itstool gtk4 yelp-tools libadwaita libnotify)
+
+name=zenity
+version=4.2.2
+
+source=($url/-/archive/$version/$name-$version.tar.gz)
+PKGMK_MESON_OPTIONS="--sysconfdir=/etc --localstatedir=/var"
+
+build=meson
+
+package() {
+install -Dm644 $name-$version/COPYING $PKG/usr/share/licenses/$name/COPYING
+}
+
