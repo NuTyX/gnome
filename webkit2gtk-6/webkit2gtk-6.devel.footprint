@@ -42,6 +42,7 @@ drwxr-xr-x	root/root	usr/include/webkitgtk-6.0/webkit/
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitGeolocationManager.h
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitGeolocationPermissionRequest.h
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitHitTestResult.h
+-rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitImage.h
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitInputMethodContext.h
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitInstallMissingMediaPluginsPermissionRequest.h
 -rw-r--r--	root/root	usr/include/webkitgtk-6.0/webkit/WebKitMediaKeySystemPermissionRequest.h
