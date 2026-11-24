@@ -385,6 +385,28 @@ lrwxrwxrwx	root/root	usr/share/help/nl/loupe/figures/zoom-out-symbolic.svg -> ..
 -rw-r--r--	root/root	usr/share/help/nl/loupe/supported-formats.page
 -rw-r--r--	root/root	usr/share/help/nl/loupe/trashing-images.page
 -rw-r--r--	root/root	usr/share/help/nl/loupe/viewing-images.page
+drwxr-xr-x	root/root	usr/share/help/nn/
+drwxr-xr-x	root/root	usr/share/help/nn/loupe/
+drwxr-xr-x	root/root	usr/share/help/nn/loupe/figures/
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/edit-copy-symbolic.svg -> ../../../C/loupe/figures/edit-copy-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/go-next-symbolic.svg -> ../../../C/loupe/figures/go-next-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/go-previous-symbolic.svg -> ../../../C/loupe/figures/go-previous-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/help-about-symbolic.svg -> ../../../C/loupe/figures/help-about-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/object-rotate-left-symbolic.svg -> ../../../C/loupe/figures/object-rotate-left-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/object-rotate-right-symbolic.svg -> ../../../C/loupe/figures/object-rotate-right-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/org.gnome.Loupe.svg -> ../../../C/loupe/figures/org.gnome.Loupe.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/user-trash-symbolic.svg -> ../../../C/loupe/figures/user-trash-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/view-fullscreen-symbolic.svg -> ../../../C/loupe/figures/view-fullscreen-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/view-restore-symbolic.svg -> ../../../C/loupe/figures/view-restore-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/zoom-in-symbolic.svg -> ../../../C/loupe/figures/zoom-in-symbolic.svg
+lrwxrwxrwx	root/root	usr/share/help/nn/loupe/figures/zoom-out-symbolic.svg -> ../../../C/loupe/figures/zoom-out-symbolic.svg
+-rw-r--r--	root/root	usr/share/help/nn/loupe/image-properties.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/index.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/opening-images.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/sending-to-other-apps.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/supported-formats.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/trashing-images.page
+-rw-r--r--	root/root	usr/share/help/nn/loupe/viewing-images.page
 drwxr-xr-x	root/root	usr/share/help/pl/
 drwxr-xr-x	root/root	usr/share/help/pl/loupe/
 drwxr-xr-x	root/root	usr/share/help/pl/loupe/figures/

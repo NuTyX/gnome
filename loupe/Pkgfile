@@ -3,15 +3,14 @@ url='https://apps.gnome.org/Loupe/'
 
 license="GPL3"
 
-packager="tnut <tnut@nutyx.org>"
-contributors="Spiky"
+packager="spiky <spiky@nutyx.org>"
+contributors="Tnut"
 
 makedepends=(glycin lcms2 libadwaita libgweather-4  libseccomp rustc)
 set=(gnome)
 
 name=loupe
-version=51.0
-release=1
+version=51.2
 
 source=(https://gitlab.gnome.org/GNOME/loupe.git)
 
