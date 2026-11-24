@@ -539,6 +539,36 @@ lrwxrwxrwx	root/root	usr/share/help/ko/epiphany/media/org.gnome.Epiphany.svg -> 
 -rw-r--r--	root/root	usr/share/help/ko/epiphany/pref-passwords.page
 -rw-r--r--	root/root	usr/share/help/ko/epiphany/prob-restore-closed-page.page
 -rw-r--r--	root/root	usr/share/help/ko/epiphany/proxy.page
+drwxr-xr-x	root/root	usr/share/help/nb/
+drwxr-xr-x	root/root	usr/share/help/nb/epiphany/
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-local.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-private.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-tab.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-web.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-webapps-del.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/browse-webapps.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/cert.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/cookies.xml
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/data-cookies.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/data-passwords.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/data-personal-data.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/history-delete.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/history.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/index.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/introduction.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/legal.xml
+drwxr-xr-x	root/root	usr/share/help/nb/epiphany/media/
+lrwxrwxrwx	root/root	usr/share/help/nb/epiphany/media/epiphany-plain-3-36.png -> ../../../C/epiphany/media/epiphany-plain-3-36.png
+lrwxrwxrwx	root/root	usr/share/help/nb/epiphany/media/epiphany-private-3-36.png -> ../../../C/epiphany/media/epiphany-private-3-36.png
+lrwxrwxrwx	root/root	usr/share/help/nb/epiphany/media/org.gnome.Epiphany.svg -> ../../../C/epiphany/media/org.gnome.Epiphany.svg
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-cookies.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-css.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-downloads.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-font.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-mouse-gestures.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/pref-passwords.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/prob-restore-closed-page.page
+-rw-r--r--	root/root	usr/share/help/nb/epiphany/proxy.page
 drwxr-xr-x	root/root	usr/share/help/nl/
 drwxr-xr-x	root/root	usr/share/help/nl/epiphany/
 -rw-r--r--	root/root	usr/share/help/nl/epiphany/browse-local.page
