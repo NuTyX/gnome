@@ -12,22 +12,21 @@ makedepends=(meson ninja libpeas yelp-xsl enchant iso-codes
 run=(gsettings-desktop-schemas desktop-file-utils gtk-update-icon-cache gvfs)
 
 name=gedit
-version=50.0
-release=3
+version=51.1
 
 
 PKGMK_MESON_OPTIONS="-Dgtk_doc=false"
 
 source=(https://gitlab.gnome.org/World/gedit/gedit.git)
 
-prepare() {
-  git clone https://gitlab.gnome.org/GNOME/libgd.git
+#prepare() {
+ # git clone https://gitlab.gnome.org/GNOME/libgd.git
 
-  cd $name-$version
-  git submodule init
-  git submodule set-url subprojects/libgd $SRC/libgd
-  git -c protocol.file.allow=always submodule update
-}
+  #cd $name-$version
+  #git submodule init
+  #git submodule set-url subprojects/libgd $SRC/libgd
+  #git -c protocol.file.allow=always submodule update
+#}
 
 build=meson
 
