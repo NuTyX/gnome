@@ -10,8 +10,7 @@ run=(gstreamer gstreamer-plugins-base gstreamer-plugins-good
 set=(gnome)
 
 name=showtime
-version=50.0
-release=4
+version=50.1.1
 
 source=(https://gitlab.gnome.org/GNOME/showtime.git)
 
