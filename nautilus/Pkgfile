@@ -14,7 +14,7 @@ makedepends=(gnome-autoar libnotify gnome-desktop gvfs gtk4
 set=(gnome)
 
 name=nautilus
-version=51.1
+version=51.2
 
 PKGMK_MESON_OPTIONS="-Dselinux=disabled"
 
